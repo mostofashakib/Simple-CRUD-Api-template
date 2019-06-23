@@ -1,0 +1,72 @@
+<!--
+
+This is the edit html template for the edit route of a simple CRUD api
+
+Written by: Mostofa Adib Shakib
+Language: HTML, CSS, JavaScript
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1" ><a href="/"> KurT's Steam Store </a></span>
+            <a class="float-right" href="/add" title="Add a new developer"> Add a developer </a>
+        </nav>
+
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (developer) { %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" id="name" value="<%= developer.name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="details">Details</label>
+                    <input type="text" class="form-control" name="details" id="details" value="<%= developer.details %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="email">email</label>
+                    <input type="text" class="form-control" name="email" id="email" value="<%= developer.email %>" required >
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control" name="age" id="age" placeholder="age" value="<%= developer.age %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="position">Position</label>
+                    <select id="position" name="position" class="form-control" required>
+                        <option selected><%= developer.position %></option>
+                         <option> Lead Developer </option>
+                        <option> Senior Developer </option>
+                        <option> Junior Developer </option>>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update Developer</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Developer Not Found. Go <a href="/add">here</a> to add a Developer.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>

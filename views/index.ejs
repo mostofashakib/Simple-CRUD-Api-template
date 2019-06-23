@@ -1,0 +1,68 @@
+<!--
+
+This is the index html template for the index route of a simple CRUD api
+
+Written by: Mostofa Adib Shakib
+Language: HTML, CSS, JavaScript
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="favicon.png"/>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+</head>
+<body>
+	<div class="page-wrapper">
+    	<nav class="navbar navbar-light bg-light">
+        	<span class="navbar-brand mb-0 h1" ><a href="/"> KurT's Steam Store </a></span>
+        	<a class="float-right" href="/add" title="Add a new developer"> Add a developer </a>
+    	</nav>
+
+    <div class="table-wrapper">
+        <% if (developer.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Position</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% developer.forEach((developer, index) => { %>
+                        <tr>
+                            <th scope="row"><%= developer.id %></th>
+                            <td>@<%= developer.name %></td>
+                            <td><%= developer.details %></td>
+                            <td><%= developer.age %></td>
+                            <td><%= developer.email %></td>
+                            <td><%= developer.position %></td>
+                            <td>
+                                <a href="/edit/<%= developer.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/delete/<%= developer.id %>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No developer found. Go <a href="/add" > Here </a> to add developer.</p>
+        <% } %>
+    </div>
+</div>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="main.js"></script>
+
+</body>
+</html>
