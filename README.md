@@ -31,9 +31,9 @@ https://www.apachefriends.org/index.html
 
 ## Built With
 
-* [Languages](HTML, CSS, JavaScript, Node.JS)
-* [Framework](Bootstrap, Express)
-* [Database](MySQL)
+* Languages: HTML, CSS, JavaScript, Node.JS
+* Framework: Bootstrap, Express
+* Database: MySQL
 
 ## Authors
 
